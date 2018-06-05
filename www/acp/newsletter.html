@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ChannelControl</title>
+    <script src="/apps/api/knuddels-api.js"></script>
+    <script>
+        Client.includeCSS('../css/bootstrap.min.css');
+        Client.includeCSS('../css/sb-admin.css');
+        Client.includeCSS('../css/plugins/morris.css');
+        Client.includeCSS('../font-awesome/css/font-awesome.min.css');
+        Client.includeJS('/apps/api/jquery.min.js');
+        Client.includeJS('../js/bootstrap.min.js');
+        Client.includeJS('../acp/js/main.js');
+
+        document.addEventListener('eventReceived', function (event) {
+
+            let key = event.eventKey;
+            let datas = event.eventData;
+
+            if (key === 'NOTICE') {
+                setNotice(datas.msg);
+            }
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" onclick="getUI('acp_index', 'index')">ChannelControl</a>
+        </div>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" onclick="getUI('acp_index', 'index')"><i class="fa fa-fw fa-dashboard"></i> &Uuml;bersicht</a>
+                </li>
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#demo"
+                       onclick="setNavigation(); return false;"><i class="fa fa-fw fa-wrench"></i>
+                        Einstellungen <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="demo" class="collapse">
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" onclick="getUI('public', 'help')"><i class="fa fa-fw fa-info-circle"></i> Hilfe</a>
+                </li>
+                <!--
+                <li>
+                    <a href="#" onclick="getUI('acp_index', 'contact')"><i class="fa fa-fw fa-envelope"></i> Kontakt</a>
+                </li>
+                -->
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        Newsletter
+                        <small><p id="NOTICE"></p></small>
+                    </h1>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-fw fa-microphone"></i> Newsletter versenden</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form class="form">
+                                <div class="form-group">
+
+                                    <label for="receivers">F&uuml;r wen ist der Newsletter</label>
+                                    <select id="receivers" class="form-control">
+                                        <option value="0">Jeder</option>
+                                        <option value="1">Ab Familienmitglied</option>
+                                        <option value="2">Ab Stammchatter</option>
+                                        <option value="3">Ab Ehrenmitglied</option>
+                                        <option value="4">Ab Admin</option>
+                                        <option value="5">Nur Channel-Team</option>
+                                    </select>
+
+                                    <br/>
+
+                                    <label for="subject">Betreff</label>
+                                    <input type="text" class="form-control" id="subject">
+
+                                    <br/>
+
+                                    <label for="message">Nachricht</label>
+                                    <textarea id="message" class="form-control" rows="6"></textarea>
+                                    <small id="formHelpMessage" class="form-text text-muted">Folgende Platzhalter sind m&ouml;glich:<br/>
+                                        $USER - Empfänger-Nick<br/>
+                                        $CHANNELNAME - Dein Channelname<br/>
+                                        $BOTNAME - Name des ChannelControl-Bots<br/>
+                                        $SENDER - Dein Nick<br/>
+                                    </small>
+
+                                </div>
+                                <button class="btn btn-primary"
+                                        onclick="Client.sendEvent('newsletter', {'status': $('#receivers').val(), 'subject': $('#subject').val(), 'message': $('#message').val()});return false;">
+                                    Absenden
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+</body>
+
+</html>

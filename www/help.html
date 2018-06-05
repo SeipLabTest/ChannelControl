@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ChannelControl</title>
+    <script src="/apps/api/knuddels-api.js"></script>
+    <script>
+        Client.includeCSS('../css/bootstrap.min.css');
+        Client.includeCSS('../css/sb-admin.css');
+        Client.includeCSS('../css/plugins/morris.css');
+        Client.includeCSS('../font-awesome/css/font-awesome.min.css');
+        Client.includeJS('/apps/api/jquery.min.js');
+        Client.includeJS('../js/bootstrap.min.js');
+        Client.includeJS('../js/main.js');
+    </script>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" onclick="getUI('public', 'help')">ChannelControl</a>
+        </div>
+        <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li>
+                    <a href="#" onclick="getUI('public', 'help')"><i class="fa fa-fw fa-info-circle"></i> Hilfe</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+
+    <div id="page-wrapper">
+
+        <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">
+                        <small>Hilfe</small>
+                    </h1>
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-fw fa-info-circle"></i> Hilfe zu ChannelControl 3
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="list-group" id="list-tab" role="tablist">
+                                        <a class="list-group-item list-group-item-action" id="list-introducing-list"
+                                           data-toggle="tab" href="#introducing" role="tab" aria-controls="introducing">Einleitung</a>
+                                        <a class="list-group-item list-group-item-action" id="list-activitylevel-list"
+                                           data-toggle="tab" href="#activitylevel" role="tab"
+                                           aria-controls="activitylevel">Aktivitätslevel</a>
+                                        <a class="list-group-item list-group-item-action" id="list-icons-list"
+                                           data-toggle="tab" href="#icons" role="tab" aria-controls="icons">Was bedeuten
+                                            die Icons?</a>
+                                        <a class="list-group-item list-group-item-action"
+                                           id="list-general_commands-list" data-toggle="tab" href="#general_commands"
+                                           role="tab" aria-controls="general_commands">Allgemeine Befehle</a>
+                                        <a class="list-group-item list-group-item-action" id="list-cm_commands-list"
+                                           data-toggle="tab" href="#cm_commands" role="tab" aria-controls="cm_commands">CM/MOD
+                                            Befehle</a>
+                                        <a class="list-group-item list-group-item-action" id="list-owner_commands-list"
+                                           data-toggle="tab" href="#owner_commands" role="tab"
+                                           aria-controls="owner_commands">Eigentümer/Manager Befehle</a>
+                                    </div>
+                                </div>
+                                <div class="col-8">
+                                    <div style="margin: 8px" class="tab-content" id="nav-tabContent">
+                                        <div class="tab-pane fade" id="introducing" role="tabpanel"
+                                             aria-labelledby="list-introducing-list">
+                                            <p>Anders, als Du es von Knuddels.de bisher gewohnt bist, haben wir uns bei
+                                                ChannelControl 3
+                                                für den PUNKT als Befehlseinleitung entschieden. Zum Beispiel
+                                                .profile<br/>
+                                                Das h&ouml;rt sich zu Anfang suspekt an, aber nach kurzer Eingew&ouml;hnungszeit
+                                                wird
+                                                Dir das nichts mehr ausmachen. Im Gegenteil - sofern Du Knuddels regelm&auml;&szlig;ig
+                                                am
+                                                Smartphone nutzt, wirst Du die Vorz&uuml;ge des PUNKT-Operators schnell
+                                                erkennen.<br/>
+                                                Ein weiterer Vorteil ist: Durch diese kleine &Auml;nderung k&ouml;nnen
+                                                wir Dir jederzeit
+                                                kurze und verst&auml;ndliche Befehlsnamen erm&ouml;glichen, ohne in
+                                                Konflikt mit knuddelseigenen
+                                                Befehlen zu geraten.</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="activitylevel" role="tabpanel"
+                                             aria-labelledby="list-activitylevel-list">
+                                            <p>Während Deines Aufenthalts errechnen wir stetig Dein persönliches
+                                                Aktivitätslevel.
+                                                Dieses Aktivitätslevel setzt sich aus vielen verschiedenen Faktoren
+                                                zusammen.
+                                                Welche dies sind, können wir Dir leider nicht verraten. <br/>
+                                                Dieses Aktivitätslevel soll es dem Channel-Besitzer ermöglichen zu
+                                                erkennen, wie aktiv ein User ist.
+                                                <br/>Ebenso kann mithilfe dieses Levels eine Hürde für bspw. eine
+                                                CM-Wahl gesetzt werden.</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="icons" role="tabpanel"
+                                             aria-labelledby="list-icons-list">
+                                            <p>Es gibt verschiedene NICK-Icons, deren Bedeutung wir hier erläutern
+                                                möchten.<br/>
+                                                <img src="images/icons/status/Owner.png" alt="Owner-Icon"> Dieses Icon
+                                                zeichnet den Channel-Besitzer aus.<br/>
+                                                <img src="images/icons/status/LMC.png" alt="LMC-Icon"> Dieses Icon
+                                                zeigt, dass ein Nutzer diesen Channel zu seinem Lieblingschannel gemacht
+                                                hat.</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="general_commands" role="tabpanel"
+                                             aria-labelledby="list-general_commands-list">
+                                            <ul style="list-style: none" class="list-group" id="general_commands_list">
+                                                <li class="list-group-item"><strong>Allgemeine Befehle</strong></li>
+                                                <li class="list-group-item">
+                                                    <strong>.donate ANZAHL</strong><br/>
+                                                    Du spendest ANZAHL Knuddel an den Bot.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.help</strong><br/>
+                                                    Ruft diese Hilfe auf.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.newsletter</strong><br/>
+                                                    &Auml;ndert Deine Newsletter-Einstellungen.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.privacy</strong><br/>
+                                                    Zeigt die Datenschutzerklärung an.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.profile [NICK]</strong><br/>
+                                                    Ruft das Profil von NICK auf. Falls kein Name angegeben wurde,
+                                                    wird das eigene Profile angezeigt.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.system</strong><br/>
+                                                    Listet allgemeine Information zur aktuellen Installation auf.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="cm_commands" role="tabpanel"
+                                             aria-labelledby="list-cm_commands-list">
+                                            <ul style="list-style: none" class="list-group" id="cm_commands_list">
+                                                <li class="list-group-item">
+                                                    <strong>CM-Befehle</strong>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.applock</strong><br/>
+                                                    Zeigt eine Liste aller gesperrten User an.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.applock NICK:GRUND*TAGE</strong><br/>
+                                                    Sperrt NICK für TAGE (0 = Permanent) mit GRUND für das weitere
+                                                    Betreten des Channels.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.applock !NICK</strong><br/>
+                                                    Entsperrt NICK wieder für den Channel.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.appmute</strong><br/>
+                                                    Zeigt eine Liste aller User mit einem App-Mute an.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.appmute NICK:GRUND*MINUTEN</strong><br/>
+                                                    Setzt NICK für MINUTEN (0 = 24 Stunden) mit GRUND auf die
+                                                    Mute-Liste.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.appmute !NICK</strong><br/>
+                                                    Entfernt NICK wieder von der Mute-Liste
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.teamchat TEXT</strong><br/>
+                                                    Sendet eine Nachricht an alle anwesenden Teammitglieder des
+                                                    Channels.
+                                                </li>
+                                            </ul>
+                                            <ul style="list-style: none" class="list-group" id="mod_commands_list">
+                                                <li class="list-group-item"><strong>MOD-Befehle</strong></li>
+                                                <li class="list-group-item">
+                                                    <strong>.bot mute</strong><br/>
+                                                    Stellt den Bot ruhig.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.bot say:TEXT</strong><br/>
+                                                    .bot say:TEXT
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.bot do:TEXT</strong><br/>
+                                                    .bot do:TEXT
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.topic delete</strong><br/>
+                                                    Löscht das Channelthema vollständig.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.topic preview:TEXT</strong><br/>
+                                                    Zeigt eine Vorschau von TEXT als Channelthema
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.topic set:TEXT</strong><br/>
+                                                    Ersetzt das aktuelle Channelthema mit TEXT
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.topic expand:TEXT</strong><br/>
+                                                    Fügt TEXT an das Ende des aktuellen Channelthemas.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane fade" id="owner_commands" role="tabpanel"
+                                             aria-labelledby="list-owner_commands-list">
+                                            <ul style="list-style: none" class="list-group" id="owner_commands_list">
+                                                <li class="list-group-item">
+                                                    <strong>AppManager/Eigent&uuml;mer-Befehle</strong>
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.acp [modul]</strong><br/>
+                                                    Öffnet das ControlPanel der App. Wenn [modul] angegeben, wird
+                                                    direkt die Konfiguratioon von [modul] aufgerufen.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.blacklist</strong><br/>
+                                                    Zeigt eine Liste aller Nutzer an, die auf der Blacklist stehen.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.blacklist !NICK</strong><br/>
+                                                    Entfernt NICK von der Blacklist
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.blacklist NICK</strong><br/>
+                                                    Setzt NICK auf die Blacklist
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.knuddel</strong><br/>
+                                                    Der Bot verschenkt Knuddel an einen zuf&auml;lligen User.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.news THEMA:TEXT*STATUS</strong><br/>
+                                                    Sendet einen Newsletter an alle User mit STATUS. M&ouml;glich: All,
+                                                    Family, Stammi, Team,
+                                                    Ehrenmitglied, Admin
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.ownermsg</strong><br/>
+                                                    (De)Aktiviert den Hinweis über wichtige Befehle beim Betreten des
+                                                    Channels.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.payout ZAHL</strong><br/>
+                                                    Der Bot zahlt Dir ZAHL Knuddel auf Deinen Knuddelaccount.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.payout ZAHL:NICK[:GRUND]</strong><br/>
+                                                    Der Bot zahlt ZAHL Knuddel auf NICKs Knuddelaccount. Die Angabe von
+                                                    GRUND ist optional.
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <strong>.upgrade</strong><br/>
+                                                    ChannelControl 3-Upgrade kaufen.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+    </div>
+    <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+</body>
+
+</html>
